@@ -69,6 +69,12 @@ To summarize:
 - [React versions](https://reactjs.org/versions/)
 - React official documentation can be found [here](https://reactjs.org/docs/getting-started.html)
 
+> ⚠️ **CẬP NHẬT 2026:**
+> - React phiên bản mới nhất hiện tại là **19.x** (không còn 16.13.1)
+> - Facebook đã đổi tên thành **Meta**, nhưng React vẫn do Meta phát triển
+> - Trang docs chính thức đã chuyển sang **[react.dev](https://react.dev)** (trang `reactjs.org` vẫn redirect được)
+> - Kiến thức về JSX, Virtual DOM trong bài này **vẫn đúng 100%**
+
 ### 2. Why React?
 
 React is one of the most popular JavaScript libraries. Many developers and companies have been using it for the last couple of years. Its popularity has been growing fast and it has a huge community. How do we measure popularity? One measure of popularity could be GitHub repository stars, watchers and forks. Let us compare the popularity of [React](https://github.com/facebook/react) and [Vue](https://github.com/vuejs/vue). As of today, the popularity between the two most popular JavaScript looks like as shown on the diagram. From the diagram, you can speculate the most popular JavaScript library. You may look at the number of watchers, stars and forks for both React and Vue. These alone will not be a very good measure of popularity, but still it tells a little bit about the popularity of the two technologies. If I have to recommend another JavaScript library next to React, it would be Vue.js.
@@ -92,6 +98,12 @@ React Official GitHub Repository
 Vue Official GitHub Repository
 
 ![Vue Popularity February 2020](../images/vue_popularity.png)
+
+> ⚠️ **CẬP NHẬT 2026:**
+> - Ảnh chụp GitHub stars ở trên là của năm 2020, đã cũ
+> - Năm 2026: React vẫn là **số 1** về mức độ phổ biến, số lượng việc làm, và hệ sinh thái
+> - Ngoài Vue, còn có thêm các framework/thư viện đáng chú ý: **Next.js** (dựa trên React), **Svelte**, **Solid**
+> - **Kết luận vẫn đúng**: React là lựa chọn hàng đầu để học
 
 Why we choose to use React ? We use it because of the following reasons:
 
@@ -225,6 +237,11 @@ As you can see from the above index.html, we have one div with a class root and 
 
 The babel library is linked to our document and now we can make use of it. The next step is importing _React_ and _ReactDOM_ using CDN or link. In order to link React and ReactDOM, we attach both packages from CDN to the body of index.html. To test if React is linked to the index.html, try to check it by doing console.log(React). Open the browser console and you should get an object. If you see an object containing React methods then you managed to link your project with React CDN and you are ready to use React.
 
+> ⚠️ **CẬP NHẬT 2026:**
+> - Các ví dụ bên dưới dùng CDN **React 16** (`react@16`). Phiên bản mới nhất là React 19, nhưng **code JSX trong bài vẫn chạy bình thường** với React 16
+> - Nếu muốn dùng bản mới hơn, thay `react@16` thành `react@18` trong link CDN
+> - Từ Day 3 trở đi sẽ dùng project thực tế (Vite/CRA), không dùng CDN nữa, nên **không cần lo về CDN version**
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -256,6 +273,16 @@ The babel library is linked to our document and now we can make use of it. The n
 Now the index.html has everything we need to write React code. Let us get the root element using document.querySelect('.root') and assign it to a variable name rootElement. The is the only place we directly interact with DOM.
 
 Now, you knew JSX and JSX element. Let us render the JSX element on the browser, in order to do so we need the React and ReactDOM library. In addition to the React and ReactDOM we need babel to transpile the JSX to JavaScript code. The ReactDOM package has a method render. The render method takes two arguments:a JSX element or a component and the root document. See the code below. [Live on code pen](https://codepen.io/Asabeneh/full/JjdbjqK).
+
+> ⚠️ **CẬP NHẬT 2026:**
+> - `ReactDOM.render()` đã bị **deprecated** từ React 18. Code cũ vẫn chạy nhưng sẽ có warning
+> - **Cách mới (React 18+):**
+> ```js
+> import { createRoot } from 'react-dom/client'
+> const root = createRoot(document.getElementById('root'))
+> root.render(<App />)
+> ```
+> - Trong bài này dùng CDN nên `ReactDOM.render()` **vẫn hoạt động bình thường**. Chỉ cần nhớ cách mới cho khi làm project thực tế
 
 ```html
 <!DOCTYPE html>

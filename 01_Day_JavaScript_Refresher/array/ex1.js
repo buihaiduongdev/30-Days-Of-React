@@ -73,3 +73,30 @@ console.log(itCompanies.reverse());
 const [f, s, t, ...rest] = itCompanies
 console.log([f, s, t]);
 
+//18
+const last3Companies = itCompanies.slice(-3)
+console.log(last3Companies);
+
+//19
+const midleIndex = (itCompaniesLength - 1) / 2
+const midleCompany = itCompanies[midleIndex]
+console.log(midleCompany);
+
+//20
+itCompanies.splice(0, 1)
+console.log(itCompanies);
+
+//21
+itCompanies.splice((itCompanies.length - 1) / 2, 1)
+console.log(itCompanies);
+
+
+//22
+itCompanies.pop()
+console.log(itCompanies);
+
+
+//23
+itCompanies.splice(0, itCompanies.length)
+console.log(itCompanies);
+
