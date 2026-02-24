@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "baseUrl": "./src"
+  },
+  "include": ["src"]
+}
