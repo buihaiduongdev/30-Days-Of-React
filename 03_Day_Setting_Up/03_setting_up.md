@@ -42,6 +42,11 @@
 
 In the previous section, we learned about JSX and we accessed the React and ReactDOM package using CDN. However, in real projects instead of CDN you will use the create-react-app package to generate a React project starter(boilerplate). The initial _create-react-app_ was released on Jul 22, 2016. Before this time, developers used to configure webpack with a JavaScript module bundler, babel and all the necessary packages manually and this used to take half an hour or maybe more. Now, create-react-app will take care of everything and you will be in charge of only developing the product, instead of spending too much time configuring and setting up projects. Before we start using different tools, let's have a brief introduction to all the tools we are going to use in this challenge. You do not have to understand everything, but I will try to give a very short introduction to some of the tools and technologies that we use when we work with React.
 
+> ⚠️ **CẬP NHẬT 2026:**
+> - **Create React App (CRA) hiện đã bị khai tử (deprecated)**. Cộng đồng và đội ngũ React chính thức khuyên dùng **Vite** để tạo project mới.
+> - Vite nhanh hơn rất nhiều so với CRA vì nó không dùng Webpack mà dùng esbuild.
+> - Trong suốt khóa học này, nếu bài bảo dùng `npx create-react-app`, bạn hãy thay bằng `npm create vite@latest` để có trải nghiệm hiện đại và mượt mà nhất.
+
 ## Node
 
 Node is a JavaScript runtime environment that allows JavaScript to run on the server. Node was created in 2009. Node has played a great role for the growth of JavaScript. The React application starts by default at localhost 3000. The create-react-app has configured a node server for the React Application. That is why we need node and node modules. We will see create-react-app soon.
@@ -59,6 +64,10 @@ We can check if node is installed on our local machine, by opening our device te
 ```sh
 asabeneh $ node -v
 v12.18.0
+
+> ⚠️ **CẬP NHẬT 2026:**
+> - Node v12 đã quá cũ. Hiện tại bạn nên cài bản **LTS (Long Term Support)** mới nhất (thường là **v20.x** hoặc **v22.x**).
+> - Để cài đặt, hãy truy cập [nodejs.org](https://nodejs.org/).
 ```
 
 ## Module
@@ -124,8 +133,8 @@ You may need to install these extensions from Visual Studio Code
 
 - Prettier
 - ESLint
-- Bracket Pair Colorizer
-- ES7 React/Redux/GraphQL/React-Native snippets
+- Bracket Pair Colorizer (⚠️ **Cập nhật:** Hiện đã được tích hợp sẵn vào VS Code, không cần cài nữa)
+- ES7+ React/Redux/React-Native snippets (Link mới cho 2026)
 
 ## Create React App
 
@@ -136,19 +145,29 @@ Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop
 $ npx create-react-app name-of-your-project
 ```
 
-If you do not like to write npx every time you create a project you may install create-react-app package globally in your computer using the following command.
+Nếu bạn không thích viết npx mỗi lần tạo dự án bạn có thể cài đặt package create-react-app global vào máy bằng lệnh dưới.
 
 ```sh
 Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop
 $ npm install -g create-react-app
 ```
 
-After you installed create-react-app, you create a React application as follows:
+Sau khi đã cài đặt create-react-app, bạn tạo một ứng dụng React như sau:
 
 ```sh
 Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop
 $ create-react-app name-of-project
 ```
+
+> ⚠️ **CẬP NHẬT 2026 (RẤT QUAN TRỌNG):**
+> **Đừng dùng `create-react-app` nữa**. Hãy dùng lệnh sau để tạo project với **Vite**:
+> ```sh
+> npm create vite@latest name-of-project -- --template react
+> cd name-of-project
+> npm install
+> npm run dev
+> ```
+> Project sẽ khởi động tại `http://localhost:5173` (thay vì 3000).
 
 # Your first React App
 
@@ -230,6 +249,18 @@ const jsxElement = <h1>This is a JSX element</h1>
 const rootElement = document.getElementById('root')
 
 ReactDOM.render(jsxElement, rootElement)
+
+> ⚠️ **CẬP NHẬT CÚ PHÁP REACT 18-19 (2026):**
+> Trong file `index.js` (hoặc `main.jsx` nếu dùng Vite), hãy viết như sau:
+> ```js
+> import React from 'react'
+> import { createRoot } from 'react-dom/client'
+> 
+> const jsxElement = <h1>This is a JSX element</h1>
+> const rootElement = document.getElementById('root')
+> const root = createRoot(rootElement)
+> root.render(jsxElement)
+> ```
 ```
 
 ```html

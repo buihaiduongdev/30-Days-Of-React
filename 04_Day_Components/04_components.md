@@ -39,7 +39,12 @@ A React component is a small, reusable code, which is responsible for one part o
 Components can be:
 
 - Functional Component / Presentational Component / Stateless Component / Dumb Component
-- Class Component / Container Component/ Statefull Component / Smart Component
+- Class Component / Container Component/ Stateful Component / Smart Component
+
+> ⚠️ **CẬP NHẬT 2026:**
+> - Kể từ khi **React Hooks** ra đời (React 16.8+), sự phân chia "Stateless" (Function) và "Stateful" (Class) đã không còn đúng nữa. 
+> - Hiện nay, **Function Components + Hooks** là tiêu chuẩn công nghiệp. 
+> - **Class Components** được coi là **legacy** (di sản). Bạn nên biết cách đọc chúng nhưng hãy ưu tiên viết bằng Function Components.
 
 The classification of components above does not work for the latest version of React, but it is good to know the former definition and how the previous versions work.
 
@@ -215,6 +220,14 @@ const Header = () => (
 const rootElement = document.getElementById('root')
 // we render the JSX element using the ReactDOM package
 ReactDOM.render(<Header />, rootElement)
+
+> ⚠️ **CẬP NHẬT 2026:**
+> Như đã nhắc ở Day 3, hãy dùng `createRoot`:
+> ```js
+> import { createRoot } from 'react-dom/client'
+> const root = createRoot(document.getElementById('root'))
+> root.render(<Header />)
+> ```
 ```
 
 Now, let's create an App component , that will wrap the Header, Main and Footer. Then the App component will be render on the DOM.
@@ -287,6 +300,8 @@ const App = () => (
 const rootElement = document.getElementById('root')
 // we render the App component using the ReactDOM package
 ReactDOM.render(<App />, rootElement)
+
+> ⚠️ **Lưu ý:** Từ React 17, bạn không nhất thiết phải `import React from 'react'` chỉ để dùng JSX nữa. Tuy nhiên, nếu bạn dùng các Hook sau này (như `useState`), bạn vẫn cần import chúng.
 ```
 
 ![Rendering Components](../images/rendering_componnets.png)
@@ -435,6 +450,8 @@ const app = () => (
 
 // we render the App component using the ReactDOM package
 ReactDOM.render(<App />, rootElement)
+
+> ⚠️ **Mẹo nhỏ:** Trong React hiện đại, bạn có thể dùng **React Fragment** `<> ... </>` để bọc nhiều phần tử mà không tạo thêm thẻ `div` dư thừa trong DOM.
 ```
 
 ### Further on Functional components
